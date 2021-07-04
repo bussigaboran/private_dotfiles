@@ -6,7 +6,7 @@ PS1='`[[ \$? == 0 ]] && tput sgr0 || tput bold`\u@\h:\w>`tput sgr0` '
 
 HISTSIZE=10000
 export EDITOR=vi
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 export PATH=$HOME/bin:$PATH:/sbin
 
 export LC_CTYPE=en_US.UTF-8

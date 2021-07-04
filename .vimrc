@@ -81,3 +81,5 @@ map ,v :source ~/.vimrc<cr>
 nmap ,x :split ~/.vim/wishlist.txt<CR>     " wishlist
 map <F2> :echo strftime('%F %H:%M:%S')<CR> " echo timestamp
 cnoremap sudow w !sudo tee % " write read-only file with sudo
+""" Extra """""""""""""""""""""""""""""""""""""""""""""
+inoremap ( ()<Esc>i
