@@ -1,14 +1,21 @@
 """" Plugins """""""""""""""""""""""""""""""""""""""""
 set nocompatible  " needed by pathogen and vimwiki
 
+"""" General """""""""""""""""""""""""""""""""""""""""
+set visualbell
+set encoding=utf-8
+let mapleader=","
+set nobackup
+inoremap jj <Esc>  " handy on my iPad keyboard
 """" NERDTree """"""""""""""""""""""""""""""""""""""""
 " NERDTree on ctrl+n
 map <silent> <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
+let NERDTreeShowHidden = 1
+let NERDTreeMinimalUI =  1
+let NERDTreeDirArrows =  1
 """" Vimwiki """""""""""""""""""""""""""""""""""""""""
-"let g:vimwiki_list = [ {'path': '~/Dropbox/VimWiki/personal'},{'path': '~/Dropbox/VimWiki/web', 'path_html':'~/Dropbox/VimWiki/export/html/'} ]
+"  \ 'syntax': 'markdown',
+"  \ 'ext': '.md',
 let g:vimwiki_list = [{
   \ 'path': '~/Dropbox/VimWiki/personal' },
   \ {
@@ -17,11 +24,17 @@ let g:vimwiki_list = [{
   \ 'template_default': 'default',
   \ 'template_ext': '.html',
   \ 'path_html': '~/Dropbox/VimWiki/export/html/' }]
+let g:vimwiki_global_ext = 0
 nmap ,wb <Plug>VimwikiGoBackLink
 nmap ,b <Plug>VimwikiGoBackLink
 """" Ale     """""""""""""""""""""""""""""""""""""""""
+let b:ale_linters = ['flake8', 'pylint', 'luacheck']
+"let g:ale_pattern_options = {
+"        \ '.*\.wiki$': {'ale_enabled': 0}}
+" let g:ale_enabled = 0
+map <leader>at :ALEToggle<CR>  " Toggle ALE on/off
 "filetype off
-"let &runtimepath.='~/.vim/pack/plugins/start/ale'
+"let &runtimepath.='~/.vim/pack/vendor/start/ale'
 "let g:ale_python_pyflakes_executable = 'pyflakes3'
 "filetype plugin on
 """" Silver Searcher """""""""""""""""""""""""""""""""
@@ -36,19 +49,13 @@ if executable('ag')
    " bind K to grep word under cursor
    nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 endif
-"""" General """""""""""""""""""""""""""""""""""""""""
-set visualbell
-set encoding=utf-8
-let mapleader=","
-set nobackup
-" map jj to Esc. Handy on my iPad keyboard
-inoremap jj <Esc>
 """" Visual """"""""""""""""""""""""""""""""""""""""""
 " display line numbering, column and row
 set number relativenumber
 set ruler
 " - set nice colors for green on black terminal
-colorscheme elflord
+set background=dark
+colorscheme gruvbox
 syntax on
 set showmatch
 set showmode
@@ -82,4 +89,4 @@ nmap ,x :split ~/.vim/wishlist.txt<CR>     " wishlist
 map <F2> :echo strftime('%F %H:%M:%S')<CR> " echo timestamp
 cnoremap sudow w !sudo tee % " write read-only file with sudo
 """ Extra """""""""""""""""""""""""""""""""""""""""""""
-inoremap ( ()<Esc>i
+"inoremap ( ()<Esc>i
