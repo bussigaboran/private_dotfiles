@@ -1,5 +1,7 @@
 """" Plugins """""""""""""""""""""""""""""""""""""""""
 set nocompatible  " needed by pathogen and vimwiki
+filetype plugin on
+syntax on
 
 """" General """""""""""""""""""""""""""""""""""""""""
 set visualbell
@@ -31,12 +33,11 @@ nmap ,b <Plug>VimwikiGoBackLink
 let b:ale_linters = ['flake8', 'pylint', 'luacheck']
 "let g:ale_pattern_options = {
 "        \ '.*\.wiki$': {'ale_enabled': 0}}
-" let g:ale_enabled = 0
+let g:ale_enabled = 0
 map <leader>at :ALEToggle<CR>  " Toggle ALE on/off
 "filetype off
 "let &runtimepath.='~/.vim/pack/vendor/start/ale'
 "let g:ale_python_pyflakes_executable = 'pyflakes3'
-"filetype plugin on
 """" Silver Searcher """""""""""""""""""""""""""""""""
 " The Silver Searcher
 if executable('ag')
@@ -53,21 +54,21 @@ endif
 " display line numbering, column and row
 set number relativenumber
 set ruler
+set cursorline
 " - set nice colors for green on black terminal
 set background=dark
 colorscheme gruvbox
-syntax on
 set showmatch
 set showmode
 " Keep a 3-line margin above/below cursor when scrolling
 set scrolloff=3
-set wildmode=list:longest  " show all completion matches
 """" Windows and tabs """"""""""""""""""""""""""""""""
 map ,t :tabnew
 map ,p <ESC>:tabprevious<CR>
 map ,n <ESC>:tabnext<CR>
 set splitbelow
 set splitright
+set wildmode=list:longest  " show all completion matches
 """" Searching """""""""""""""""""""""""""""""""""""""
 set hlsearch
 set ignorecase
